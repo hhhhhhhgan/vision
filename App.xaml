@@ -1,0 +1,12 @@
+<Application x:Class="VisionFlow.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:VisionFlow"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <local:BoolToStarConverter x:Key="BoolToStarConverter"/>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:CategoryNameConverter x:Key="CategoryNameConverter"/>
+        <local:CategoryColorConverter x:Key="CategoryColorConverter"/>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,41 @@
+<Window x:Class="VisionFlow.Views.ToolDialogs.ROIDrawDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:halcon="clr-namespace:HalconDotNet.WPF;assembly=HalconDotNet.WPF"
+        Title="ROI绘制" Height="700" Width="900"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="ROI类型:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="ROITypeComboBox" Width="120" SelectedIndex="0">
+                <ComboBoxItem Content="矩形"/>
+                <ComboBoxItem Content="圆形"/>
+                <ComboBoxItem Content="椭圆"/>
+                <ComboBoxItem Content="多边形"/>
+            </ComboBox>
+            <Button Content="绘制" Click="DrawButton_Click" Padding="15,5" Margin="20,0,0,0" Background="#007ACC" Foreground="White" BorderThickness="0"/>
+            <Button Content="清除" Click="ClearButton_Click" Padding="15,5" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" BorderBrush="#3E3E42" BorderThickness="1">
+            <halcon:HWindowControlWPF x:Name="HWindow" Background="Black"
+                                       MouseLeftButtonDown="HWindow_MouseLeftButtonDown"
+                                       MouseMove="HWindow_MouseMove"
+                                       MouseLeftButtonUp="HWindow_MouseLeftButtonUp"/>
+        </Border>
+
+        <TextBlock x:Name="CoordsTextBlock" Grid.Row="2" Margin="0,10,0,0" Foreground="Gray"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="确定" Click="OkButton_Click" Width="80" Padding="5" Background="#007ACC" Foreground="White" BorderThickness="0"/>
+            <Button Content="取消" Click="CancelButton_Click" Width="80" Padding="5" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

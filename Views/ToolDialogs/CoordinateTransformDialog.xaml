@@ -1,0 +1,48 @@
+<Window x:Class="VisionFlow.Views.ToolDialogs.CoordinateTransformDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="坐标变换" Height="320" Width="420"
+        WindowStartupLocation="CenterOwner"
+        Background="#1A2634" ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="🔄 坐标变换" Foreground="#E8F4FF" FontSize="15" FontWeight="Bold" Margin="0,0,0,12"/>
+
+        <Border Grid.Row="1" Background="#243447" CornerRadius="8" Padding="15">
+            <StackPanel>
+                <TextBlock Text="变换模式" Foreground="#8BA4C7" FontSize="10" Margin="0,0,0,4"/>
+                <ComboBox x:Name="TransformModeCombo" SelectedIndex="0" Background="#1A2634" Foreground="White" BorderBrush="#3D5A73" Padding="6,5" Margin="0,0,0,12">
+                    <ComboBoxItem Content="absolute — 绝对偏移（直接应用）"/>
+                    <ComboBoxItem Content="relative — 相对偏移"/>
+                    <ComboBoxItem Content="rotate — 旋转偏移（绕Pivot）"/>
+                </ComboBox>
+
+                <TextBlock Text="旋转中心 (Pivot)" Foreground="#8BA4C7" FontSize="10" Margin="0,0,0,4"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,6,0">
+                        <TextBlock Text="Row" Foreground="#5A7390" FontSize="10"/>
+                        <TextBox x:Name="PivotRowTextBox" Text="0" Background="#1A2634" Foreground="White" BorderBrush="#3D5A73" Padding="6,4"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="6,0,0,0">
+                        <TextBlock Text="Col" Foreground="#5A7390" FontSize="10"/>
+                        <TextBox x:Name="PivotColTextBox" Text="0" Background="#1A2634" Foreground="White" BorderBrush="#3D5A73" Padding="6,4"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Text="缩放因子" Foreground="#8BA4C7" FontSize="10" Margin="0,0,0,4"/>
+                <TextBox x:Name="ScaleTextBox" Text="1.0" Background="#1A2634" Foreground="White" BorderBrush="#3D5A73" Padding="6,4"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="确定" Click="OkButton_Click" Width="80" Padding="6" Background="#0D6EFD" Foreground="White" BorderThickness="0"/>
+            <Button Content="取消" Click="CancelButton_Click" Width="80" Padding="6" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

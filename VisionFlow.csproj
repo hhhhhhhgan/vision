@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon></ApplicationIcon>
+    <StartupObject>VisionFlow.App</StartupObject>
+    <AssemblyName>VisionFlow</AssemblyName>
+    <RootNamespace>VisionFlow</RootNamespace>
+  </PropertyGroup>
+
+  <!-- HALCON 引用 (根据实际安装路径调整) -->
+  <PropertyGroup Condition="Exists('C:\Program Files\MVTec\HALCON-24.11\bin\dotnet5\HalconDotNet.dll')">
+    <HalconDir>C:\Program Files\MVTec\HALCON-24.11</HalconDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('C:\Program Files\MVTec\HALCON-23.11\bin\dotnet5\HalconDotNet.dll')">
+    <HalconDir>C:\Program Files\MVTec\HALCON-23.11</HalconDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('C:\Program Files\MVTec\HALCON-22.11\bin\dotnet5\HalconDotNet.dll')">
+    <HalconDir>C:\Program Files\MVTec\HALCON-22.11</HalconDir>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(HalconDir)' != ''">
+    <Reference Include="HalconDotNet">
+      <HintPath>$(HalconDir)\bin\dotnet5\HalconDotNet.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
