@@ -12,33 +12,41 @@
     <RootNamespace>VisionFlow</RootNamespace>
   </PropertyGroup>
 
-  <!-- HALCON 引用 (自动检测已安装的版本) -->
+  <!-- HALCON 引用 -->
+  <!-- 尝试多个可能的 HALCON 安装路径和 bin 目录 -->
   <PropertyGroup>
-    <!-- 可手动设置此路径覆盖自动检测 -->
-    <HalconDir Condition="'$(HalconDir)' == ''">C:\Program Files\MVTec\HALCON-24.11</HalconDir>
-    <HalconDir Condition="Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll')">$(HalconDir)</HalconDir>
-    <HalconDir Condition="!Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-23.11</HalconDir>
-    <HalconDir Condition="!Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-22.11</HalconDir>
-    <HalconDir Condition="!Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-21.11</HalconDir>
+    <!-- 手动指定路径（如果自动检测失败） -->
+    <!-- 取消注释下面这行并修改为你的实际路径 -->
+    <!-- <HalconDir>C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir> -->
+
+    <!-- 自动检测 -->
+    <HalconDir Condition="'$(HalconDir)' == ''">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
+    <HalconDir Condition="Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">$(HalconDir)</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-24.11</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-23.11</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-22.11</HalconDir>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll')">
+  <!-- 优先使用 x64-win64（较新 HALCON 版本），回退到 dotnet5 -->
+  <PropertyGroup Condition="Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">
+    <HalconBin>$(HalconDir)\bin\x64-win64</HalconBin>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(HalconDir)\bin\dotnet5\HalconDotNet.dll') and '$(HalconBin)' == ''">
+    <HalconBin>$(HalconDir)\bin\dotnet5</HalconBin>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.dll')">
     <Reference Include="HalconDotNet">
-      <HintPath>$(HalconDir)\bin\dotnet5\HalconDotNet.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="HalconDotNet.WPF">
-      <HintPath>$(HalconDir)\bin\dotnet5\HalconDotNet.WPF.dll</HintPath>
+      <HintPath>$(HalconBin)\HalconDotNet.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-
-  <!-- 如果上面的自动检测找不到，手动指定路径（取消注释并修改） -->
-  <!--
-  <PropertyGroup>
-    <HalconDir>C:\你的\HALCON\路径</HalconDir>
-  </PropertyGroup>
-  -->
+  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.WPF.dll')">
+    <Reference Include="HalconDotNet.WPF">
+      <HintPath>$(HalconBin)\HalconDotNet.WPF.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="8.0.0" />
