@@ -5,18 +5,15 @@ namespace VisionFlow.Views.ToolDialogs;
 
 public partial class PointToPointDistanceDialog : ToolDialogBase
 {
-    private readonly PointToPointDistanceTool _tool;
-
     public PointToPointDistanceDialog(PointToPointDistanceTool tool)
     {
         InitializeComponent();
-        _tool = tool;
         Tool = tool;
         LoadFromTool();
         Compute();
     }
 
-    private void LoadFromTool()
+    protected override void LoadFromTool()
     {
         // 仅显示，当前由连线驱动，无持久参数
         DistanceTextBlock.Text = "-";

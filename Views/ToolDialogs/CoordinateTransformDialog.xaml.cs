@@ -5,35 +5,34 @@ namespace VisionFlow.Views.ToolDialogs;
 
 public partial class CoordinateTransformDialog : ToolDialogBase
 {
-    private readonly CoordinateTransformTool _tool;
-
     public CoordinateTransformDialog(CoordinateTransformTool tool)
     {
         InitializeComponent();
-        _tool = tool;
         Tool = tool;
         LoadFromTool();
     }
 
-    private void LoadFromTool()
+    protected override void LoadFromTool()
     {
-        TransformModeCombo.SelectedIndex = _tool.TransformMode switch
+        if (Tool is not CoordinateTransformTool t) return;
+        TransformModeCombo.SelectedIndex = t.TransformMode switch
         {
             "relative" => 1,
             "rotate" => 2,
             _ => 0
         };
-        PivotRowTextBox.Text = _tool.PivotRow.ToString();
-        PivotColTextBox.Text = _tool.PivotCol.ToString();
-        ScaleTextBox.Text = _tool.Scale.ToString();
+        PivotRowTextBox.Text = t.PivotRow.ToString();
+        PivotColTextBox.Text = t.PivotCol.ToString();
+        ScaleTextBox.Text = t.Scale.ToString();
     }
 
-    private void SaveToTool()
+    protected override void SaveToTool()
     {
-        _tool.TransformMode = TransformModeCombo.SelectedIndex switch { 1 => "relative", 2 => "rotate", _ => "absolute" };
-        _tool.PivotRow = double.TryParse(PivotRowTextBox.Text, out var r) ? r : 0;
-        _tool.PivotCol = double.TryParse(PivotColTextBox.Text, out var c) ? c : 0;
-        _tool.Scale = double.TryParse(ScaleTextBox.Text, out var s) ? s : 1.0;
+        if (Tool is not CoordinateTransformTool t) return;
+        t.TransformMode = TransformModeCombo.SelectedIndex switch { 1 => "relative", 2 => "rotate", _ => "absolute" };
+        t.PivotRow = double.TryParse(PivotRowTextBox.Text, out var r) ? r : 0;
+        t.PivotCol = double.TryParse(PivotColTextBox.Text, out var c) ? c : 0;
+        t.Scale = double.TryParse(ScaleTextBox.Text, out var s) ? s : 1.0;
     }
 
     private void OkButton_Click(object sender, RoutedEventArgs e)

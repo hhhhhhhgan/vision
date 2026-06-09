@@ -6,7 +6,6 @@ namespace VisionFlow.Views.ToolDialogs;
 
 public partial class FindLineDialog : ToolDialogBase
 {
-    private readonly FindLineTool _tool;
     private HImage? _inputImage;
     private HXLD? _resultLine;
     private HTuple? _r1, _c1, _r2, _c2;
@@ -14,23 +13,23 @@ public partial class FindLineDialog : ToolDialogBase
     public FindLineDialog(FindLineTool tool)
     {
         InitializeComponent();
-        _tool = tool;
         Tool = tool;
         LoadFromTool();
     }
 
-    private void LoadFromTool()
+    protected override void LoadFromTool()
     {
-        ROIRow1TextBox.Text = _tool.ROIRow1.ToString();
-        ROICol1TextBox.Text = _tool.ROICol1.ToString();
-        ROIRow2TextBox.Text = _tool.ROIRow2.ToString();
-        ROICol2TextBox.Text = _tool.ROICol2.ToString();
-        SigmaTextBox.Text = _tool.Sigma.ToString();
-        EdgeThresholdTextBox.Text = _tool.EdgeThreshold.ToString();
-        SelectPointsTextBox.Text = _tool.SelectPoints.ToString();
-        NumIterationsTextBox.Text = _tool.NumIterations.ToString();
+        if (Tool is not FindLineTool t) return;
+        ROIRow1TextBox.Text = t.ROIRow1.ToString();
+        ROICol1TextBox.Text = t.ROICol1.ToString();
+        ROIRow2TextBox.Text = t.ROIRow2.ToString();
+        ROICol2TextBox.Text = t.ROICol2.ToString();
+        SigmaTextBox.Text = t.Sigma.ToString();
+        EdgeThresholdTextBox.Text = t.EdgeThreshold.ToString();
+        SelectPointsTextBox.Text = t.SelectPoints.ToString();
+        NumIterationsTextBox.Text = t.NumIterations.ToString();
 
-        TransitionComboBox.SelectedIndex = _tool.Transition switch
+        TransitionComboBox.SelectedIndex = t.Transition switch
         {
             "positive" => 1,
             "negative" => 2,
@@ -38,17 +37,18 @@ public partial class FindLineDialog : ToolDialogBase
         };
     }
 
-    private void SaveToTool()
+    protected override void SaveToTool()
     {
-        _tool.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 100);
-        _tool.ROICol1 = ParseDouble(ROICol1TextBox.Text, 100);
-        _tool.ROIRow2 = ParseDouble(ROIRow2TextBox.Text, 300);
-        _tool.ROICol2 = ParseDouble(ROICol2TextBox.Text, 400);
-        _tool.Sigma = ParseDouble(SigmaTextBox.Text, 1.0);
-        _tool.EdgeThreshold = ParseDouble(EdgeThresholdTextBox.Text, 25);
-        _tool.SelectPoints = ParseInt(SelectPointsTextBox.Text, 15);
-        _tool.NumIterations = ParseInt(NumIterationsTextBox.Text, 5);
-        _tool.Transition = TransitionComboBox.SelectedIndex switch { 1 => "positive", 2 => "negative", _ => "all" };
+        if (Tool is not FindLineTool t) return;
+        t.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 100);
+        t.ROICol1 = ParseDouble(ROICol1TextBox.Text, 100);
+        t.ROIRow2 = ParseDouble(ROIRow2TextBox.Text, 300);
+        t.ROICol2 = ParseDouble(ROICol2TextBox.Text, 400);
+        t.Sigma = ParseDouble(SigmaTextBox.Text, 1.0);
+        t.EdgeThreshold = ParseDouble(EdgeThresholdTextBox.Text, 25);
+        t.SelectPoints = ParseInt(SelectPointsTextBox.Text, 15);
+        t.NumIterations = ParseInt(NumIterationsTextBox.Text, 5);
+        t.Transition = TransitionComboBox.SelectedIndex switch { 1 => "positive", 2 => "negative", _ => "all" };
     }
 
     private double ParseDouble(string s, double def) => double.TryParse(s, out var v) ? v : def;

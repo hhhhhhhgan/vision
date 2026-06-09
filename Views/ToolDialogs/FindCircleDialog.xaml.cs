@@ -6,30 +6,29 @@ namespace VisionFlow.Views.ToolDialogs;
 
 public partial class FindCircleDialog : ToolDialogBase
 {
-    private readonly FindCircleTool _tool;
     private HImage? _inputImage;
     private HXLD? _resultCircle;
 
     public FindCircleDialog(FindCircleTool tool)
     {
         InitializeComponent();
-        _tool = tool;
         Tool = tool;
         LoadFromTool();
     }
 
-    private void LoadFromTool()
+    protected override void LoadFromTool()
     {
-        ROIRowTextBox.Text = _tool.ROIRow.ToString();
-        ROIColTextBox.Text = _tool.ROICol.ToString();
-        InnerRadiusTextBox.Text = _tool.ROIInnerRadius.ToString();
-        OuterRadiusTextBox.Text = _tool.ROIOuterRadius.ToString();
-        SigmaTextBox.Text = _tool.Sigma.ToString();
-        EdgeThresholdTextBox.Text = _tool.EdgeThreshold.ToString();
-        SelectPointsTextBox.Text = _tool.SelectPoints.ToString();
-        CircularityTextBox.Text = _tool.Circularity.ToString();
+        if (Tool is not FindCircleTool t) return;
+        ROIRowTextBox.Text = t.ROIRow.ToString();
+        ROIColTextBox.Text = t.ROICol.ToString();
+        InnerRadiusTextBox.Text = t.ROIInnerRadius.ToString();
+        OuterRadiusTextBox.Text = t.ROIOuterRadius.ToString();
+        SigmaTextBox.Text = t.Sigma.ToString();
+        EdgeThresholdTextBox.Text = t.EdgeThreshold.ToString();
+        SelectPointsTextBox.Text = t.SelectPoints.ToString();
+        CircularityTextBox.Text = t.Circularity.ToString();
 
-        TransitionComboBox.SelectedIndex = _tool.Transition switch
+        TransitionComboBox.SelectedIndex = t.Transition switch
         {
             "positive" => 1,
             "negative" => 2,
@@ -37,17 +36,18 @@ public partial class FindCircleDialog : ToolDialogBase
         };
     }
 
-    private void SaveToTool()
+    protected override void SaveToTool()
     {
-        _tool.ROIRow = ParseDouble(ROIRowTextBox.Text, 200);
-        _tool.ROICol = ParseDouble(ROIColTextBox.Text, 200);
-        _tool.ROIInnerRadius = ParseDouble(InnerRadiusTextBox.Text, 50);
-        _tool.ROIOuterRadius = ParseDouble(OuterRadiusTextBox.Text, 100);
-        _tool.Sigma = ParseDouble(SigmaTextBox.Text, 1.0);
-        _tool.EdgeThreshold = ParseDouble(EdgeThresholdTextBox.Text, 25);
-        _tool.SelectPoints = ParseInt(SelectPointsTextBox.Text, 30);
-        _tool.Circularity = ParseDouble(CircularityTextBox.Text, 0.3);
-        _tool.Transition = TransitionComboBox.SelectedIndex switch { 1 => "positive", 2 => "negative", _ => "all" };
+        if (Tool is not FindCircleTool t) return;
+        t.ROIRow = ParseDouble(ROIRowTextBox.Text, 200);
+        t.ROICol = ParseDouble(ROIColTextBox.Text, 200);
+        t.ROIInnerRadius = ParseDouble(InnerRadiusTextBox.Text, 50);
+        t.ROIOuterRadius = ParseDouble(OuterRadiusTextBox.Text, 100);
+        t.Sigma = ParseDouble(SigmaTextBox.Text, 1.0);
+        t.EdgeThreshold = ParseDouble(EdgeThresholdTextBox.Text, 25);
+        t.SelectPoints = ParseInt(SelectPointsTextBox.Text, 30);
+        t.Circularity = ParseDouble(CircularityTextBox.Text, 0.3);
+        t.Transition = TransitionComboBox.SelectedIndex switch { 1 => "positive", 2 => "negative", _ => "all" };
     }
 
     private double ParseDouble(string s, double def) => double.TryParse(s, out var v) ? v : def;

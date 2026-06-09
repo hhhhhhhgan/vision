@@ -54,20 +54,23 @@ public abstract class ToolDialogBase : Window
         return panel;
     }
 
+    /// <summary>工具实例（由子类在构造函数中赋值）</summary>
+    protected ToolBase? Tool { get; set; }
+
     /// <summary>
     /// 加载当前工具参数到对话框
     /// </summary>
-    protected abstract void LoadFromTool();
+    protected virtual void LoadFromTool() { }
 
     /// <summary>
     /// 将对话框的值保存到工具
     /// </summary>
-    protected abstract void SaveToTool();
+    protected virtual void SaveToTool() { }
 
     /// <summary>
     /// 执行该工具（使用当前工具的参数）
     /// </summary>
-    protected abstract void ExecuteTool();
+    protected virtual void ExecuteTool() { }
 
     /// <summary>
     /// 应用（不关闭对话框）

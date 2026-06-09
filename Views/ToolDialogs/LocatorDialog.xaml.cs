@@ -7,32 +7,31 @@ namespace VisionFlow.Views.ToolDialogs;
 
 public partial class LocatorDialog : ToolDialogBase
 {
-    private readonly LocatorTool _tool;
     private HImage? _inputImage;
 
     public LocatorDialog(LocatorTool tool)
     {
         InitializeComponent();
-        _tool = tool;
         Tool = tool;
         LoadFromTool();
     }
 
-    private void LoadFromTool()
+    protected override void LoadFromTool()
     {
-        ROIRow1TextBox.Text = _tool.ROIRow1.ToString();
-        ROICol1TextBox.Text = _tool.ROICol1.ToString();
-        ROIRow2TextBox.Text = _tool.ROIRow2.ToString();
-        ROICol2TextBox.Text = _tool.ROICol2.ToString();
-        OffsetXTextBox.Text = _tool.OffsetX.ToString();
-        OffsetYTextBox.Text = _tool.OffsetY.ToString();
-        OffsetAngleTextBox.Text = _tool.OffsetAngle.ToString();
-        ThresholdTextBox.Text = _tool.BlobThreshold.ToString();
-        MinAreaTextBox.Text = _tool.MinArea.ToString();
-        FollowRefCheckBox.IsChecked = _tool.FollowRefPoint;
-        FollowOffsetCheckBox.IsChecked = _tool.FollowOffset;
+        if (Tool is not LocatorTool t) return;
+        ROIRow1TextBox.Text = t.ROIRow1.ToString();
+        ROICol1TextBox.Text = t.ROICol1.ToString();
+        ROIRow2TextBox.Text = t.ROIRow2.ToString();
+        ROICol2TextBox.Text = t.ROICol2.ToString();
+        OffsetXTextBox.Text = t.OffsetX.ToString();
+        OffsetYTextBox.Text = t.OffsetY.ToString();
+        OffsetAngleTextBox.Text = t.OffsetAngle.ToString();
+        ThresholdTextBox.Text = t.BlobThreshold.ToString();
+        MinAreaTextBox.Text = t.MinArea.ToString();
+        FollowRefCheckBox.IsChecked = t.FollowRefPoint;
+        FollowOffsetCheckBox.IsChecked = t.FollowOffset;
 
-        LocateModeCombo.SelectedIndex = _tool.LocateMode switch
+        LocateModeCombo.SelectedIndex = t.LocateMode switch
         {
             "edge_pair" => 1,
             "template" => 2,
@@ -40,20 +39,21 @@ public partial class LocatorDialog : ToolDialogBase
         };
     }
 
-    private void SaveToTool()
+    protected override void SaveToTool()
     {
-        _tool.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 50);
-        _tool.ROICol1 = ParseDouble(ROICol1TextBox.Text, 50);
-        _tool.ROIRow2 = ParseDouble(ROIRow2TextBox.Text, 350);
-        _tool.ROICol2 = ParseDouble(ROICol2TextBox.Text, 350);
-        _tool.OffsetX = ParseDouble(OffsetXTextBox.Text, 0);
-        _tool.OffsetY = ParseDouble(OffsetYTextBox.Text, 0);
-        _tool.OffsetAngle = ParseDouble(OffsetAngleTextBox.Text, 0);
-        _tool.BlobThreshold = ParseDouble(ThresholdTextBox.Text, 128);
-        _tool.MinArea = ParseDouble(MinAreaTextBox.Text, 100);
-        _tool.FollowRefPoint = FollowRefCheckBox.IsChecked ?? false;
-        _tool.FollowOffset = FollowOffsetCheckBox.IsChecked ?? false;
-        _tool.LocateMode = LocateModeCombo.SelectedIndex switch { 1 => "edge_pair", 2 => "template", _ => "blob_center" };
+        if (Tool is not LocatorTool t) return;
+        t.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 50);
+        t.ROICol1 = ParseDouble(ROICol1TextBox.Text, 50);
+        t.ROIRow2 = ParseDouble(ROIRow2TextBox.Text, 350);
+        t.ROICol2 = ParseDouble(ROICol2TextBox.Text, 350);
+        t.OffsetX = ParseDouble(OffsetXTextBox.Text, 0);
+        t.OffsetY = ParseDouble(OffsetYTextBox.Text, 0);
+        t.OffsetAngle = ParseDouble(OffsetAngleTextBox.Text, 0);
+        t.BlobThreshold = ParseDouble(ThresholdTextBox.Text, 128);
+        t.MinArea = ParseDouble(MinAreaTextBox.Text, 100);
+        t.FollowRefPoint = FollowRefCheckBox.IsChecked ?? false;
+        t.FollowOffset = FollowOffsetCheckBox.IsChecked ?? false;
+        t.LocateMode = LocateModeCombo.SelectedIndex switch { 1 => "edge_pair", 2 => "template", _ => "blob_center" };
     }
 
     private void LocateModeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
