@@ -14,30 +14,40 @@
 
   <!-- HALCON 引用 -->
   <PropertyGroup>
-    <!-- 用户本地 AppData 路径（优先） -->
-    <HalconDir Condition="Exists('$(HalconDir)')">$(HalconDir)</HalconDir>
     <HalconDir Condition="'$(HalconDir)' == ''">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady</HalconDir>
     <HalconDir Condition="!Exists('$(HalconDir)')">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
-    <HalconDir Condition="!Exists('$(HalconDir)')">C:\Program Files\MVTec\HALCON-24.11</HalconDir>
   </PropertyGroup>
 
-  <!-- 确定 bin 目录：x64-win64（较新版本）或 dotnet35 -->
-  <PropertyGroup Condition="Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">
+  <!-- 尝试 x64-win64（标准），dotnet35（旧版），dotnet5（旧版） -->
+  <PropertyGroup Condition="Exists('$(HalconDir)\bin\x64-win64\halcon.dll')">
     <HalconBin>$(HalconDir)\bin\x64-win64</HalconBin>
   </PropertyGroup>
-  <PropertyGroup Condition="Exists('$(HalconDir)\bin\dotnet35\HalconDotNet.dll') and '$(HalconBin)' == ''">
+  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\bin\dotnet35\halcon.dll')">
     <HalconBin>$(HalconDir)\bin\dotnet35</HalconBin>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\bin\dotnet5\halcon.dll')">
+    <HalconBin>$(HalconDir)\bin\dotnet5</HalconBin>
+  </PropertyGroup>
 
-  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.dll')">
-    <Reference Include="HalconDotNet">
-      <HintPath>$(HalconBin)\HalconDotNet.dll</HintPath>
+  <!-- 主 HALCON 引用 -->
+  <ItemGroup Condition="'$(HalconBin)' != ''">
+    <Reference Include="halcondotnet">
+      <HintPath>$(HalconBin)\halcondotnet.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.WPF.dll')">
+
+  <!-- WPF 控件引用（如果存在） -->
+  <ItemGroup Condition="Exists('$(HalconBin)\HalconDotNet.WPF.dll')">
     <Reference Include="HalconDotNet.WPF">
       <HintPath>$(HalconBin)\HalconDotNet.WPF.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(HalconBin)' != '' and !Exists('$(HalconBin)\HalconDotNet.WPF.dll') and Exists('$(HalconBin)\halcondotnet.dll')">
+    <!-- halcondotnet.dll 本身可能已包含 WPF 控件 -->
+    <Reference Include="halcondotnet">
+      <HintPath>$(HalconBin)\halcondotnet.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
