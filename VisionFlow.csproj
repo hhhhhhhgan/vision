@@ -12,22 +12,23 @@
     <RootNamespace>VisionFlow</RootNamespace>
   </PropertyGroup>
 
-  <!-- HALCON 引用 -->
-  <!-- 尝试多个可能的 HALCON 安装路径和 bin 目录 -->
+  <!-- HALCON 引用 (自动检测已安装的版本) -->
   <PropertyGroup>
-    <!-- 手动指定路径（如果自动检测失败） -->
-    <!-- 取消注释下面这行并修改为你的实际路径 -->
-    <!-- <HalconDir>C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir> -->
+    <!-- 用户自定义路径（优先） -->
+    <HalconDir Condition="'$(CustomHalconDir)' != ''">$(CustomHalconDir)</HalconDir>
 
-    <!-- 自动检测 -->
-    <HalconDir Condition="'$(HalconDir)' == ''">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
-    <HalconDir Condition="Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">$(HalconDir)</HalconDir>
+    <!-- 自动检测：用户本地 AppData 路径 -->
+    <HalconDir Condition="'$(HalconDir)' == ''">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-23.11-Progress-Steady</HalconDir>
+
+    <!-- 自动检测：Program Files 标准路径 -->
+    <HalconDir Condition="'$(HalconDir)' == '' Or !Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
     <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-24.11</HalconDir>
     <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-23.11</HalconDir>
     <HalconDir Condition="!Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">C:\Program Files\MVTec\HALCON-22.11</HalconDir>
   </PropertyGroup>
 
-  <!-- 优先使用 x64-win64（较新 HALCON 版本），回退到 dotnet5 -->
+  <!-- 确定 HALCON bin 目录 -->
   <PropertyGroup Condition="Exists('$(HalconDir)\bin\x64-win64\HalconDotNet.dll')">
     <HalconBin>$(HalconDir)\bin\x64-win64</HalconBin>
   </PropertyGroup>
@@ -35,13 +36,11 @@
     <HalconBin>$(HalconDir)\bin\dotnet5</HalconBin>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.dll')">
+  <ItemGroup Condition="'$(HalconBin)' != ''">
     <Reference Include="HalconDotNet">
       <HintPath>$(HalconBin)\HalconDotNet.dll</HintPath>
       <Private>false</Private>
     </Reference>
-  </ItemGroup>
-  <ItemGroup Condition="'$(HalconBin)' != '' and Exists('$(HalconBin)\HalconDotNet.WPF.dll')">
     <Reference Include="HalconDotNet.WPF">
       <HintPath>$(HalconBin)\HalconDotNet.WPF.dll</HintPath>
       <Private>false</Private>
