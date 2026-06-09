@@ -28,6 +28,10 @@
       <HintPath>$(HalconDir)\bin\dotnet5\HalconDotNet.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="HalconDotNet.WPF">
+      <HintPath>$(HalconDir)\bin\dotnet5\HalconDotNet.WPF.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
