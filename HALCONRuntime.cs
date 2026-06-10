@@ -33,14 +33,22 @@ public static class HALCONRuntime
             if (_initialized) return;
 
             // 1. 设置环境变量
-            string halconRoot = @"C:\Program Files\MVTec\HALCON-24.11-Progress";
-            if (System.IO.Directory.Exists(halconRoot))
+            // 优先使用用户安装目录 (HalconDotNet.WPF.dll 路径)
+            string halconRoot = @"C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady";
+            if (!System.IO.Directory.Exists(halconRoot))
+                halconRoot = @"C:\Program Files\MVTec\HALCON-24.11-Progress";
+            if (!System.IO.Directory.Exists(halconRoot))
+                halconRoot = @"C:\Program Files\MVTec\HALCON-24.11-Progress-Steady";
             {
                 SetEnv("HALCONROOT", halconRoot);
                 SetEnv("HALCONEXAMPLES", System.IO.Path.Combine(halconRoot, "examples"));
                 SetEnv("HALCONIMAGES", System.IO.Path.Combine(halconRoot, "images"));
 
                 string binPath = System.IO.Path.Combine(halconRoot, "bin", "x64-win64");
+                if (!System.IO.Directory.Exists(binPath))
+                    binPath = System.IO.Path.Combine(halconRoot, "bin", "dotnet35");
+                if (!System.IO.Directory.Exists(binPath))
+                    binPath = System.IO.Path.Combine(halconRoot, "bin", "dotnet5");
                 if (System.IO.Directory.Exists(binPath))
                 {
                     string currentPath = Environment.GetEnvironmentVariable("PATH") ?? "";
