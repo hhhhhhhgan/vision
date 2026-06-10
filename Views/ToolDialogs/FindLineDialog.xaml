@@ -1,7 +1,7 @@
 <Window x:Class="VisionFlow.Views.ToolDialogs.FindLineDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
+        xmlns:ha="http://schemas.mvtec.com/halcondotnet"
         Title="查找线" Height="700" Width="900"
         WindowStartupLocation="CenterOwner">
     <Grid Margin="10">
@@ -67,7 +67,7 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" BorderBrush="#3E3E42" BorderThickness="1">
-                <halcon:HWindowControl x:Name="HWindow" Background="Black"/>
+                <ha:HWindowControlWPF x:Name="HWindow" Background="Black"/>
             </Border>
 
             <TextBlock x:Name="InfoTextBlock" Grid.Row="1" Margin="0,8,0,0" Foreground="#AAA" FontSize="11"/>
