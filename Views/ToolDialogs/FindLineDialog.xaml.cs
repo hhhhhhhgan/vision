@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class FindLineDialog : ToolDialogBase
 {
@@ -154,4 +154,5 @@ public partial class FindLineDialog : ToolDialogBase
         DialogResult = false;
         Close();
     }
+}
 }

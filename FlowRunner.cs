@@ -3,7 +3,7 @@ using System.Text.Json;
 using HalconDotNet;
 using VisionFlow.Models;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 流程运行器 — 外部调用入口
@@ -270,4 +270,5 @@ public class FlowRunner : IDisposable
         _disposed = true;
         // 释放 HALCON 资源（如果需要）
     }
+}
 }

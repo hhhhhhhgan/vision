@@ -4,7 +4,7 @@ using System.Windows.Data;
 using System.Windows.Media;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 public class BoolToStarConverter : IValueConverter
 {
@@ -62,4 +62,5 @@ public class CategoryColorConverter : IValueConverter
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         => throw new NotImplementedException();
+}
 }

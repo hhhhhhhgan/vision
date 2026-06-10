@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class BlobAnalysisDialog : ToolDialogBase
 {
@@ -29,4 +29,6 @@ public partial class BlobAnalysisDialog : ToolDialogBase
     }
 
     private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
+}
+
 }

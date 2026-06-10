@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class GetGrayValueDialog : ToolDialogBase
 {
@@ -21,4 +21,6 @@ public partial class GetGrayValueDialog : ToolDialogBase
     }
 
     private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
+}
+
 }

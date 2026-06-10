@@ -4,7 +4,7 @@ using System.Windows.Data;
 using VisionFlow.Models;
 using VisionFlow.ViewModels;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ParametersDialog : Window
 {
@@ -86,4 +86,5 @@ public static class ParameterDataTypes
         "string", "number", "integer", "boolean",
         "image", "region", "xld", "file", "json"
     };
+}
 }

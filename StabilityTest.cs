@@ -10,7 +10,7 @@ using VisionFlow;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 2小时稳定性测试 — 全流程逻辑自检
@@ -498,4 +498,5 @@ public class LogicSelfCheck
         var mappedCount = toolTypes.Count;
         Console.WriteLine($"  ✅ {mappedCount}个工具已注册");
     }
+}
 }

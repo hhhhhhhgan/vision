@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class StressTestDialog : Window
 {
@@ -115,4 +115,5 @@ public partial class StressTestDialog : Window
         _runner?.Cancel();
         Close();
     }
+}
 }

@@ -1,6 +1,6 @@
 using HalconDotNet;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// HALCON 性能优化配置
@@ -94,4 +94,5 @@ public static class HALCONPerfConfig
         sw.Stop();
         System.Diagnostics.Debug.WriteLine($"[HALCON WarmUp] 完成，耗时: {sw.ElapsedMilliseconds}ms");
     }
+}
 }

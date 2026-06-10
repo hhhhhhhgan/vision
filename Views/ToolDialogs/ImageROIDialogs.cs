@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>
 /// 图像加载对话框
@@ -405,4 +405,5 @@ public partial class ROIDrawDialog : ToolDialogBase
         }
         catch (HalconException hex) { _resultInfo.Text = $"❌ {hex.Message}"; }
     }
+}
 }

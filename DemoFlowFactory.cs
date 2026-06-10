@@ -2,7 +2,7 @@ using System.Windows;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 创建演示流程（用于压力测试）
@@ -138,4 +138,5 @@ public static class DemoFlowFactory
 
         return (nodes, connections);
     }
+}
 }

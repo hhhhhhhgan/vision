@@ -1,4 +1,4 @@
-namespace VisionFlow.Tools;
+namespace VisionFlow.Tools {
 
 public enum ToolCategory
 {
@@ -87,4 +87,5 @@ public static class ToolCategoryInfo
     public static string GetName(ToolCategory cat) => Info.GetValueOrDefault(cat).Name ?? cat.ToString();
     public static string GetEmoji(ToolCategory cat) => Info.GetValueOrDefault(cat).Emoji ?? "📦";
     public static string GetColor(ToolCategory cat) => Info.GetValueOrDefault(cat).Color ?? "#374151";
+}
 }

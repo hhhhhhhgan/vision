@@ -5,7 +5,7 @@ using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.AvalonEdit.Highlighting;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>
 /// C# 代码自动补齐提供器
@@ -263,4 +263,5 @@ public class CompletionData : ICompletionData
         var text = textArea.Document.GetText(startOffset, length);
         textArea.Document.Replace(startOffset, length, InsertText);
     }
+}
 }

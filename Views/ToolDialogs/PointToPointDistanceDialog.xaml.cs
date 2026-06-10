@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class PointToPointDistanceDialog : ToolDialogBase
 {
@@ -34,4 +34,6 @@ public partial class PointToPointDistanceDialog : ToolDialogBase
     }
 
     private void CloseButton_Click(object sender, RoutedEventArgs e) => Close();
+}
+
 }

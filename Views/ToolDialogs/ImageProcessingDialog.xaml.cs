@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ImageProcessingDialog : ToolDialogBase
 {
@@ -152,4 +152,5 @@ public partial class ImageProcessingDialog : ToolDialogBase
         DialogResult = false;
         Close();
     }
+}
 }

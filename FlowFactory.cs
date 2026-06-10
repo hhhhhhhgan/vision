@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 流程工厂 — 创建各种测试流程验证工具互通性
@@ -363,4 +363,5 @@ public class FlowValidator
 
         return sb.ToString();
     }
+}
 }

@@ -7,7 +7,7 @@ using VisionFlow;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 流程互通性测试 — 验证所有工具接口互通，无异常
@@ -482,4 +482,5 @@ public class FlowInteropTest
         foreach (var l in _log)
             Console.WriteLine(l);
     }
+}
 }

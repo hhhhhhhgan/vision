@@ -1,4 +1,4 @@
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 全局配色方案
@@ -38,4 +38,5 @@ public static class AppTheme
 
     // 渐变色
     public static readonly string GradientBlue = "linear-gradient(135deg, #0D6EFD 0%, #0A58CA 100%)";
+}
 }

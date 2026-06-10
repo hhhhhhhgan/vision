@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>
 /// 工具对话框基类
@@ -123,4 +123,5 @@ public abstract class ToolDialogBase : Window
         DialogResult = false;
         Close();
     }
+}
 }

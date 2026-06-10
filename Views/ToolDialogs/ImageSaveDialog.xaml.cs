@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ImageSaveDialog : ToolDialogBase
 {
@@ -35,4 +35,6 @@ public partial class ImageSaveDialog : ToolDialogBase
     }
 
     private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
+}
+
 }

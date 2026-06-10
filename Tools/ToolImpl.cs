@@ -1,7 +1,7 @@
 using HalconDotNet;
 using VisionFlow.Models;
 
-namespace VisionFlow.Tools;
+namespace VisionFlow.Tools {
 
 /// <summary>
 /// 工具基类 — 所有工具继承此类
@@ -879,4 +879,5 @@ public class CSharpScriptTool : ToolBase
         }
         catch (Exception ex) { return Task.FromResult(Result.Fail($"脚本错误: {ex.Message}")); }
     }
+}
 }

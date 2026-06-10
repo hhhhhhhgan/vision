@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class CoordinateTransformDialog : ToolDialogBase
 {
@@ -47,4 +47,5 @@ public partial class CoordinateTransformDialog : ToolDialogBase
         DialogResult = false;
         Close();
     }
+}
 }

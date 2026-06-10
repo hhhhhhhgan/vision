@@ -3,7 +3,7 @@ using HalconDotNet;
 using Microsoft.Win32;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ImageLoadDialog : ToolDialogBase
 {
@@ -71,4 +71,5 @@ public static class HWindowControlExtensions
         hWindow.HalconWindow.SetPart((int)oy, (int)ox, (int)(oy + imgH) - 1, (int)(ox + imgW) - 1);
         image.DispImage(hWindow.HalconWindow);
     }
+}
 }

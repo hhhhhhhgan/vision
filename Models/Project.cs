@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace VisionFlow.Models;
+namespace VisionFlow.Models {
 
 /// <summary>
 /// 工程文件（可序列化 JSON）
@@ -42,4 +42,5 @@ public class ConnectionData
     public string SourceSlot { get; set; } = string.Empty;
     public string TargetNodeId { get; set; } = string.Empty;
     public string TargetSlot { get; set; } = string.Empty;
+}
 }

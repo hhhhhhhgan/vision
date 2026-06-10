@@ -8,7 +8,7 @@ using VisionFlow;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 工程保存完整性验证
@@ -414,4 +414,5 @@ public class FlowParameter
     public string? DefaultValue { get; set; }
     public string? BindingNodeId { get; set; }
     public string? BindingSlot { get; set; }
+}
 }

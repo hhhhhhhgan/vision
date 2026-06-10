@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>
 /// 形态学工具对话框
@@ -367,4 +367,5 @@ public partial class BlobAnalysisDialog : ToolDialogBase
             _resultInfo.Text = $"❌ 错误: {hex.Message}";
         }
     }
+}
 }

@@ -1,6 +1,6 @@
 using System.Windows.Media;
 
-namespace VisionFlow.Models;
+namespace VisionFlow.Models {
 
 /// <summary>
 /// 节点执行状态
@@ -82,4 +82,5 @@ public class Connection : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string? name = null)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+}
 }

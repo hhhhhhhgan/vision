@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class PointToPointDistanceDialog : ToolDialogBase
 {
@@ -436,4 +436,5 @@ public partial class ImageProcessingDialog : ToolDialogBase
     protected override void LoadFromTool() { }
     protected override void SaveToTool() { }
     protected override void ExecuteTool() { }
+}
 }

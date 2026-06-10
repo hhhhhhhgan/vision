@@ -8,7 +8,7 @@ using VisionFlow.Models;
 using VisionFlow.Tools;
 using VisionFlow.ViewModels;
 
-namespace VisionFlow.Views;
+namespace VisionFlow.Views {
 
 public partial class MainWindow : Window
 {
@@ -633,4 +633,5 @@ public class PortInfo
     public string SlotName { get; set; } = "";
     public string PortType { get; set; } = "";
     public int Index { get; set; }
+}
 }

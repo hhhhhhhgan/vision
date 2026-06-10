@@ -3,7 +3,7 @@ using System.Diagnostics;
 using HalconDotNet;
 using VisionFlow.Models;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 优化过的流程执行引擎
@@ -276,4 +276,5 @@ public class NodeStats
 {
     public bool HasExecuted { get; set; }
     public double LastDurationMs { get; set; }
+}
 }

@@ -1,7 +1,7 @@
 using System.Windows;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ThresholdDialog : ToolDialogBase
 {
@@ -29,4 +29,6 @@ public partial class ThresholdDialog : ToolDialogBase
 
     private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
     private double ParseDouble(string s, double def) => double.TryParse(s, out var v) ? v : def;
+}
+
 }

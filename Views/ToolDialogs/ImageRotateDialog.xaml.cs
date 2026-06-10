@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ImageRotateDialog : ToolDialogBase
 {
@@ -48,4 +48,5 @@ public partial class ImageRotateDialog : ToolDialogBase
     }
 
     private void CancelButton_Click(object sender, RoutedEventArgs e) { DialogResult = false; Close(); }
+}
 }

@@ -8,7 +8,7 @@ using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.CSharp;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class CSharpScriptDialog : ToolDialogBase
 {
@@ -197,4 +197,5 @@ public class TextSegment : ISegment
     public int Offset { get; set; }
     public int Length { get; set; }
     public int EndOffset => Offset + Length;
+}
 }

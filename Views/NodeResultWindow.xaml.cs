@@ -5,7 +5,7 @@ using System.Windows.Threading;
 using HalconDotNet;
 using VisionFlow.Models;
 
-namespace VisionFlow.Views;
+namespace VisionFlow.Views {
 
 /// <summary>
 /// 节点输出显示窗口 — 单步运行结果显示
@@ -219,4 +219,5 @@ public class NodeResultWindow : Window
         try { _hWindow.HalconWindow.ClearWindow(); } catch { }
         if (_imageTitle != null) _imageTitle.Text = "📷 (无输出)";
     }
+}
 }

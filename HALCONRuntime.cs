@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using HalconDotNet;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// HALCON 运行时管理器 — 集中初始化、预热、缓存
@@ -126,4 +126,5 @@ public static class HALCONRuntime
             if (_regionCache.TryGetValue(_.Key, out var w) && w.TryGetTarget(out _)) reg++;
         return (img, reg);
     }
+}
 }

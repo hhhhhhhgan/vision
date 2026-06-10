@@ -1,1 +1,3 @@
-namespace VisionFlow.Tools;
+namespace VisionFlow.Tools {
+
+}

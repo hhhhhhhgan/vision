@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using VisionFlow.Models;
 
-namespace VisionFlow.ViewModels;
+namespace VisionFlow.ViewModels {
 
 public class MainViewModel : INotifyPropertyChanged
 {
@@ -720,4 +720,5 @@ public class RelayCommand<T> : ICommand
     public bool CanExecute(object? parameter) => _canExecute?.Invoke((T?)parameter) ?? true;
     public void Execute(object? parameter) => _execute((T?)parameter);
     public event EventHandler? CanExecuteChanged { add => CommandManager.RequerySuggested += value; remove => CommandManager.RequerySuggested -= value; }
+}
 }

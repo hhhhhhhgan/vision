@@ -2,7 +2,7 @@ using System.Windows;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>
 /// 查找直线对话框
@@ -396,4 +396,5 @@ public partial class CaliperMeasureDialog : ToolDialogBase
         }
         catch (HalconException hex) { _resultInfo.Text = $"❌ {hex.Message}"; }
     }
+}
 }

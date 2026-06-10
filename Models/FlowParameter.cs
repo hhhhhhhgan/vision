@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace VisionFlow.Models;
+namespace VisionFlow.Models {
 
 /// <summary>
 /// 流程参数定义（输入或输出）
@@ -52,5 +52,6 @@ public class ProjectParameters : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string? name = null)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+}
 }
 }

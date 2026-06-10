@@ -4,7 +4,7 @@ using System.Windows;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 
-namespace VisionFlow;
+namespace VisionFlow {
 
 /// <summary>
 /// 压力测试 / 连续运行测试
@@ -293,4 +293,5 @@ public class StressTestResult
     public double TotalDurationMs { get; set; }
     public double AvgDurationMs { get; set; }
     public List<ErrorRecord> Errors { get; set; } = new();
+}
 }

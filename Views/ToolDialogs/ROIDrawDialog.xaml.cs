@@ -3,7 +3,7 @@ using System.Windows.Input;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class ROIDrawDialog : ToolDialogBase
 {
@@ -82,4 +82,5 @@ public partial class ROIDrawDialog : ToolDialogBase
 
     private void OkButton_Click(object sender, RoutedEventArgs e) { DialogResult = true; Close(); }
     private void CancelButton_Click(object sender, RoutedEventArgs e) { DialogResult = false; Close(); }
+}
 }

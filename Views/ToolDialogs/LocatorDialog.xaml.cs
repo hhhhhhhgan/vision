@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using HalconDotNet;
 using VisionFlow.Tools;
 
-namespace VisionFlow.Views.ToolDialogs;
+namespace VisionFlow.Views.ToolDialogs {
 
 public partial class LocatorDialog : ToolDialogBase
 {
@@ -168,4 +168,5 @@ public partial class LocatorDialog : ToolDialogBase
         DialogResult = false;
         Close();
     }
+}
 }
