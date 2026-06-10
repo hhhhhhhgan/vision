@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
     <ApplicationIcon></ApplicationIcon>
     <StartupObject>VisionFlow.App</StartupObject>
     <AssemblyName>VisionFlow</AssemblyName>
@@ -18,14 +18,14 @@
     <HalconDir Condition="!Exists('$(HalconDir)')">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
   </PropertyGroup>
 
-  <!-- 尝试 x64-win64（标准），dotnet35（旧版），dotnet5（旧版） -->
-  <PropertyGroup Condition="Exists('$(HalconDir)\bin\x64-win64\halcon.dll')">
-    <HalconBin>$(HalconDir)\bin\x64-win64</HalconBin>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\bin\dotnet35\halcon.dll')">
+  <!-- 尝试 dotnet35（.NET Framework），x64-win64（标准），dotnet5（旧版） -->
+  <PropertyGroup Condition="Exists('$(HalconDir)\\bin\\dotnet35\\halcon.dll')">
     <HalconBin>$(HalconDir)\bin\dotnet35</HalconBin>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\bin\dotnet5\halcon.dll')">
+  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\\bin\\x64-win64\\halcon.dll')">
+    <HalconBin>$(HalconDir)\bin\x64-win64</HalconBin>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(HalconBin)' == '' and Exists('$(HalconDir)\\bin\\dotnet5\\halcon.dll')">
     <HalconBin>$(HalconDir)\bin\dotnet5</HalconBin>
   </PropertyGroup>
 
@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="6.0.10" />
   </ItemGroup>
 
 </Project>
