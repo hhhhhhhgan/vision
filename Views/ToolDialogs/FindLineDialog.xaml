@@ -67,7 +67,7 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" BorderBrush="#3E3E42" BorderThickness="1">
-                <halcon:HWindowControlWPF x:Name="HWindow" Background="Black"/>
+                <halcon:HWindowControl x:Name="HWindow" Background="Black"/>
             </Border>
 
             <TextBlock x:Name="InfoTextBlock" Grid.Row="1" Margin="0,8,0,0" Foreground="#AAA" FontSize="11"/>

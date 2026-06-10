@@ -103,7 +103,7 @@
             </Grid.RowDefinitions>
 
             <Border CornerRadius="8" BorderBrush="#3D5A73" BorderThickness="1" ClipToBounds="True">
-                <halcon:HWindowControlWPF x:Name="HWindow" Background="#0F1923"/>
+                <halcon:HWindowControl x:Name="HWindow" Background="#0F1923"/>
             </Border>
 
             <TextBlock x:Name="InfoTextBlock" Grid.Row="1" Margin="0,8,0,0" Foreground="#8BA4C7" FontSize="11"/>

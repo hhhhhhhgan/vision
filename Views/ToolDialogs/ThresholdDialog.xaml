@@ -39,7 +39,7 @@
             </Grid.RowDefinitions>
 
             <Border CornerRadius="8" BorderBrush="#3D5A73" BorderThickness="1">
-                <halcon:HWindowControlWPF x:Name="HWindow" Background="#0F1923"/>
+                <halcon:HWindowControl x:Name="HWindow" Background="#0F1923"/>
             </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
