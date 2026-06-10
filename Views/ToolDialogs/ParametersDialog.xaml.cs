@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using VisionFlow.Models;
 using VisionFlow.ViewModels;
+using System.Collections.Generic;
 
 namespace VisionFlow.Views.ToolDialogs {
 

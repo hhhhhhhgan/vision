@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using HalconDotNet;
 using VisionFlow.Models;
+using System.Collections.Generic;
 
 namespace VisionFlow {
 

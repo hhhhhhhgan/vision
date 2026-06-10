@@ -1,5 +1,6 @@
 using HalconDotNet;
 using VisionFlow.Models;
+using System.Collections.Generic;
 
 namespace VisionFlow.Tools {
 

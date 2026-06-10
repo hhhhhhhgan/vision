@@ -2,6 +2,7 @@ using System.IO;
 using System.Text.Json;
 using HalconDotNet;
 using VisionFlow.Models;
+using System.Collections.Generic;
 
 namespace VisionFlow {
 

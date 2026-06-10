@@ -7,6 +7,7 @@ using System.Windows.Shapes;
 using VisionFlow.Models;
 using VisionFlow.Tools;
 using VisionFlow.ViewModels;
+using System.Collections.Generic;
 
 namespace VisionFlow.Views {
 

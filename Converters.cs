@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 using VisionFlow.Tools;
+using System.Collections.Generic;
 
 namespace VisionFlow {
 

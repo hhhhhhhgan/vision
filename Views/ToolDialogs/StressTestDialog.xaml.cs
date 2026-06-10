@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using VisionFlow.Models;
 using VisionFlow.Tools;
+using System.Collections.Generic;
 
 namespace VisionFlow.Views.ToolDialogs {
 

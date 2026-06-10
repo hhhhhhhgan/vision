@@ -7,6 +7,7 @@ using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.CSharp;
 using VisionFlow.Tools;
+using System.Collections.Generic;
 
 namespace VisionFlow.Views.ToolDialogs {
 

@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
 using VisionFlow.Models;
+using System.Collections.Generic;
 
 namespace VisionFlow.ViewModels {
 

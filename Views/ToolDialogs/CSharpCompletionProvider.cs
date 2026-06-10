@@ -4,6 +4,7 @@ using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.AvalonEdit.Highlighting;
+using System.Collections.Generic;
 
 namespace VisionFlow.Views.ToolDialogs {
 
