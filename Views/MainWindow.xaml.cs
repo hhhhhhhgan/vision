@@ -8,6 +8,7 @@ using VisionFlow.Models;
 using VisionFlow.Tools;
 using VisionFlow.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace VisionFlow.Views {
 
@@ -281,7 +282,7 @@ public partial class MainWindow : Window
         border.MouseMove += Node_MouseMove;
         border.MouseLeftButtonDown += (s, e) =>
         {
-            if (e.ClickCount == 2) { ViewModel.EditNode(nodeVm); e.Handled = true; }
+            if (e.ClickCount == 2) { EditNode(nodeVm); e.Handled = true; }
         };
 
         border.MouseEnter += (s, e) =>
