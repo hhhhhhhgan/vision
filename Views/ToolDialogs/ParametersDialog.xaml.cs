@@ -4,6 +4,7 @@ using System.Windows.Data;
 using VisionFlow.Models;
 using VisionFlow.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace VisionFlow.Views.ToolDialogs {
 

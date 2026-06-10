@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using HalconDotNet;
+using System.Collections.Generic;
 
 namespace VisionFlow {
 

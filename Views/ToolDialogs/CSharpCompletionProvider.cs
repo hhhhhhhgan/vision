@@ -5,6 +5,7 @@ using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.AvalonEdit.Highlighting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace VisionFlow.Views.ToolDialogs {
 

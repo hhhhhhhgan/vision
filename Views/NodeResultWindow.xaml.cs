@@ -4,6 +4,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using HalconDotNet;
 using VisionFlow.Models;
+using System.Linq;
 
 namespace VisionFlow.Views {
 
