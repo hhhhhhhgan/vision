@@ -7,7 +7,7 @@ namespace VisionFlow.Views.ToolDialogs;
 /// <summary>
 /// 形态学工具对话框
 /// </summary>
-public class MorphologyDialog : ToolDialogBase
+public partial class MorphologyDialog : ToolDialogBase
 {
     private readonly MorphologyTool _tool;
     private HImage? _inputImage;
@@ -184,7 +184,7 @@ public class MorphologyDialog : ToolDialogBase
 /// <summary>
 /// Blob分析工具对话框
 /// </summary>
-public class BlobAnalysisDialog : ToolDialogBase
+public partial class BlobAnalysisDialog : ToolDialogBase
 {
     private readonly BlobAnalysisTool _tool;
     private HImage? _inputImage;

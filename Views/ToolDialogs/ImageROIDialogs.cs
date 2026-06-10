@@ -7,7 +7,7 @@ namespace VisionFlow.Views.ToolDialogs;
 /// <summary>
 /// 图像加载对话框
 /// </summary>
-public class ImageLoadDialog : ToolDialogBase
+public partial class ImageLoadDialog : ToolDialogBase
 {
     private readonly ImageLoadTool _tool;
     private System.Windows.Controls.TextBox _pathBox = null!;
@@ -144,7 +144,7 @@ public class ImageLoadDialog : ToolDialogBase
 /// <summary>
 /// 图像旋转对话框
 /// </summary>
-public class ImageRotateDialog : ToolDialogBase
+public partial class ImageRotateDialog : ToolDialogBase
 {
     private readonly ImageRotateTool _tool;
     private System.Windows.Controls.TextBox _angleBox = null!;
@@ -243,7 +243,7 @@ public class ImageRotateDialog : ToolDialogBase
 /// <summary>
 /// ROI绘制对话框
 /// </summary>
-public class ROIDrawDialog : ToolDialogBase
+public partial class ROIDrawDialog : ToolDialogBase
 {
     private readonly ROIDrawTool _tool;
     private System.Windows.Controls.ComboBox _typeCombo = null!;

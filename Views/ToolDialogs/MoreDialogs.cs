@@ -4,7 +4,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs;
 
-public class PointToPointDistanceDialog : ToolDialogBase
+public partial class PointToPointDistanceDialog : ToolDialogBase
 {
     private readonly PointToPointDistanceTool _tool;
     private System.Windows.Controls.TextBox _p1rBox = null!, _p1cBox = null!, _p2rBox = null!, _p2cBox = null!;
@@ -93,7 +93,7 @@ public class PointToPointDistanceDialog : ToolDialogBase
     }
 }
 
-public class PointToLineDistanceDialog : ToolDialogBase
+public partial class PointToLineDistanceDialog : ToolDialogBase
 {
     private readonly PointToLineDistanceTool _tool;
     private System.Windows.Controls.TextBox _prBox = null!, _pcBox = null!;
@@ -199,7 +199,7 @@ public class PointToLineDistanceDialog : ToolDialogBase
     }
 }
 
-public class LineToLineDistanceDialog : ToolDialogBase
+public partial class LineToLineDistanceDialog : ToolDialogBase
 {
     private readonly LineToLineDistanceTool _tool;
     private System.Windows.Controls.TextBlock _resultInfo = null!;
@@ -239,7 +239,7 @@ public class LineToLineDistanceDialog : ToolDialogBase
     protected override void ExecuteTool() { }
 }
 
-public class GetGrayValueDialog : ToolDialogBase
+public partial class GetGrayValueDialog : ToolDialogBase
 {
     private readonly GetGrayValueTool _tool;
     private System.Windows.Controls.TextBox _rowBox = null!, _colBox = null!;
@@ -335,7 +335,7 @@ public class GetGrayValueDialog : ToolDialogBase
     }
 }
 
-public class CSharpScriptDialog : ToolDialogBase
+public partial class CSharpScriptDialog : ToolDialogBase
 {
     private readonly CSharpScriptTool _tool;
     private System.Windows.Controls.TextBox _codeBox = null!;
@@ -391,7 +391,7 @@ public class CSharpScriptDialog : ToolDialogBase
     protected override void ExecuteTool() { }
 }
 
-public class ImageProcessingDialog : ToolDialogBase
+public partial class ImageProcessingDialog : ToolDialogBase
 {
     private readonly ToolBase _tool;
 

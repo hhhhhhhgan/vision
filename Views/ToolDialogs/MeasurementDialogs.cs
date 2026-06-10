@@ -7,7 +7,7 @@ namespace VisionFlow.Views.ToolDialogs;
 /// <summary>
 /// 查找直线对话框
 /// </summary>
-public class FindLineDialog : ToolDialogBase
+public partial class FindLineDialog : ToolDialogBase
 {
     private readonly FindLineTool _tool;
     private System.Windows.Controls.TextBox _threshBox = null!;
@@ -156,7 +156,7 @@ public class FindLineDialog : ToolDialogBase
 /// <summary>
 /// 查找圆对话框
 /// </summary>
-public class FindCircleDialog : ToolDialogBase
+public partial class FindCircleDialog : ToolDialogBase
 {
     private readonly FindCircleTool _tool;
     private System.Windows.Controls.TextBox _threshBox = null!;
@@ -283,7 +283,7 @@ public class FindCircleDialog : ToolDialogBase
 /// <summary>
 /// 卡尺测量对话框
 /// </summary>
-public class CaliperMeasureDialog : ToolDialogBase
+public partial class CaliperMeasureDialog : ToolDialogBase
 {
     private readonly CaliperMeasureTool _tool;
     private System.Windows.Controls.TextBox _countBox = null!;
