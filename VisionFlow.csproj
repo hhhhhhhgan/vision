@@ -15,8 +15,9 @@
 
   <!-- HALCON 引用 -->
   <PropertyGroup>
-    <HalconDir Condition="'$(HalconDir)' == ''">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady</HalconDir>
-    <HalconDir Condition="!Exists('$(HalconDir)')">C:\Program Files\MVTec\HALCON-24.11-Progress</HalconDir>
+    <HalconDir Condition="'$(HalconDir)' == ''">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-26.05-Progress</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)')">C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady</HalconDir>
+    <HalconDir Condition="!Exists('$(HalconDir)')">C:\Program Files\MVTec\HALCON-26.05-Progress</HalconDir>
   </PropertyGroup>
 
   <!-- 尝试 dotnet35（.NET Framework），x64-win64（标准），dotnet5（旧版） -->
