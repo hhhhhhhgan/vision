@@ -250,6 +250,7 @@ public class CompletionData : ICompletionData
     public string InsertText { get; }
     public object Content => Text;
     public double Priority => 0;
+    public System.Windows.Media.ImageSource? Image => null;
 
     public CompletionData(string text, string description, string insertText)
     {
