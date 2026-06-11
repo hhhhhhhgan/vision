@@ -109,6 +109,7 @@ public class InputSlot
     public string Name { get; set; } = "";
     public Type ValueType { get; set; } = typeof(object);
     public bool IsOptional { get; set; }
+    public bool IsConnected { get; set; }
     public object? Value { get; set; }
     public InputSlot() { }
     public InputSlot(string name, Type type, bool optional = false) { Name = name; ValueType = type; IsOptional = optional; }
@@ -118,6 +119,7 @@ public class OutputSlot
 {
     public string Name { get; set; } = "";
     public Type ValueType { get; set; } = typeof(object);
+    public bool IsConnected { get; set; }
     public object? Value { get; set; }
     public OutputSlot() { }
     public OutputSlot(string name, Type type) { Name = name; ValueType = type; }
