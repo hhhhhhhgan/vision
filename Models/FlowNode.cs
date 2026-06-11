@@ -27,9 +27,9 @@ public class FlowNode : INotifyPropertyChanged
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public ToolBase Tool { get; set; } = null!;
 
-    public double X { get => _x; set { _x = value; OnPropertyChanged(); }
-    public double Y { get => _y; set { _y = value; OnPropertyChanged(); }
-    public bool IsSelected { get => _isSelected; set { _isSelected = value; OnPropertyChanged(); }
+    public double X { get => _x; set { _x = value; OnPropertyChanged(); } }
+    public double Y { get => _y; set { _y = value; OnPropertyChanged(); } }
+    public bool IsSelected { get => _isSelected; set { _isSelected = value; OnPropertyChanged(); } }
 
     public NodeExecutionStatus ExecutionStatus
     {
@@ -72,7 +72,7 @@ public class FlowNode : INotifyPropertyChanged
 public class Connection : INotifyPropertyChanged
 {
     private string _id = Guid.NewGuid().ToString();
-    public string Id { get => _id; set { _id = value; OnPropertyChanged(); }
+    public string Id { get => _id; set { _id = value; OnPropertyChanged(); } }
 
     public FlowNode SourceNode { get; set; } = null!;
     public FlowNode TargetNode { get; set; } = null!;

@@ -258,7 +258,7 @@ public partial class MainWindow : Window
             VerticalAlignment = VerticalAlignment.Center
         };
 
-        var titlePanel = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center };
+var titlePanel = new StackPanel { Orientation = Orientation.Horizontal };
         titlePanel.Children.Add(statusDot);
         titlePanel.Children.Add(title);
         titleBorder.Child = titlePanel;
@@ -598,10 +598,7 @@ public partial class MainWindow : Window
         var nodes = ViewModel.Nodes.Select(n => n.Node).ToList();
         var connections = ViewModel.Connections.Select(c => c.Connection).ToList();
 
-        var dialog = new Views.ToolDialogs.StressTestDialog(nodes, connections)
-        {
-            Owner = this
-        };
+        var dialog = new Views.ToolDialogs.StressTestDialog(nodes, connections);
         dialog.Show();
     }
 
@@ -654,4 +651,5 @@ public partial class MainWindow : Window
         public string PortType { get; set; } = "";
         public int Index { get; set; }
     }
+}
 }
