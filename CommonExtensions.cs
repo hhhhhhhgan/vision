@@ -10,3 +10,13 @@ namespace VisionFlow {
             => dict.TryGetValue(key, out var v) ? v : defaultValue;
     }
 }
+namespace VisionFlow {
+    public static class ConcurrentDictionaryExtensions
+    {
+        public static TValue? GetValueOrDefault<TKey, TValue>(this ConcurrentDictionary<TKey, TValue> dict, TKey key) where TValue : class
+            => dict.TryGetValue(key, out var v) ? v : null;
+        
+        public static TValue GetValueOrDefault<TKey, TValue>(this ConcurrentDictionary<TKey, TValue> dict, TKey key, TValue defaultValue) where TValue : struct
+            => dict.TryGetValue(key, out var v) ? v : defaultValue;
+    }
+}
