@@ -103,6 +103,28 @@ public partial class MainWindow : Window
         }
     }
 
+    private static IEnumerable<DependencyObject> GetVisualsAtPoint(Visual root, Point point)
+    {
+        var hits = new List<DependencyObject>();
+        var result = VisualTreeHelper.HitTest(root, point);
+        if (result?.VisualHit != null)
+        {
+            hits.Add(result.VisualHit);
+            if (result.VisualHit is FrameworkElement fe && fe.IsTapEnabled)
+            {
+                // nothing more needed
+            }
+            // Walk up the visual tree
+            var parent = VisualTreeHelper.GetParent(result.VisualHit);
+            while (parent != null)
+            {
+                hits.Add(parent);
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+        }
+        return hits;
+    }
+
     // ========== 工具箱拖拽 ==========
 
     private void ToolboxItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -384,7 +406,7 @@ public partial class MainWindow : Window
         Border? targetPort = null;
         PortInfo? targetInfo = null;
 
-        var elements = VisualTreeHelper.FindElementsAtHost(FlowCanvas, e.GetPosition(FlowCanvas));
+        var elements = GetVisualsAtPoint(FlowCanvas, e.GetPosition(FlowCanvas));
         foreach (var el in elements)
         {
             if (el is Border b && b.Tag is PortInfo pi && pi.NodeVm != _connectingFromNode && pi.PortType != _connectingFromType)
@@ -627,13 +649,12 @@ public partial class MainWindow : Window
                 ViewModel.MarkChanged();
         }
     }
-}
 
-public class PortInfo
-{
-    public FlowNodeViewModel NodeVm { get; set; } = null!;
-    public string SlotName { get; set; } = "";
-    public string PortType { get; set; } = "";
-    public int Index { get; set; }
-}
+    public class PortInfo
+    {
+        public FlowNodeViewModel NodeVm { get; set; } = null!;
+        public string SlotName { get; set; } = "";
+        public string PortType { get; set; } = "";
+        public int Index { get; set; }
+    }
 }
