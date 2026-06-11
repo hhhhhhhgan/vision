@@ -289,7 +289,7 @@ public class StabilityTest
         Log("========================================");
         Log($"运行时间: {duration:hh\\:mm\\:ss}");
         Log($"总迭代: {_totalRuns}");
-        Log($"成功: {_successRuns} ({_totalRuns > 0 ? (_successRuns * 100.0 / _totalRuns):F1}%)");
+        Log($"成功: {_successRuns} ({(_totalRuns > 0 ? (_successRuns * 100.0 / _totalRuns) : 0):F1}%)");
         Log($"失败: {_failRuns}");
         Log($"异常: {_errorRuns}");
         Log($"内存峰值: {totalMemMB}MB");
