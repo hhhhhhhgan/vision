@@ -5,11 +5,9 @@ using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Highlighting.CSharp;
 using VisionFlow.Tools;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace VisionFlow.Views.ToolDialogs {
 
