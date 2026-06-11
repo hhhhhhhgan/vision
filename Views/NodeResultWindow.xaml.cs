@@ -15,13 +15,13 @@ namespace VisionFlow.Views {
 public class NodeResultWindow : Window
 {
     private HWindowControl? _hWindow;
-    private FlowNodeViewModel? _currentNode;
-    private FlowNode? _lastNode;
+    private FlowNodeViewModel _currentNode;
+    private FlowNode _lastNode;
     private readonly DispatcherTimer _refreshTimer;
-    private TextBlock? _statusLabel;
-    private TextBlock? _errorText;
-    private TextBlock? _imageTitle;
-    private StackPanel? _outputValuesPanel;
+    private TextBlock _statusLabel;
+    private TextBlock _errorText;
+    private TextBlock _imageTitle;
+    private StackPanel _outputValuesPanel;
 
     public NodeResultWindow()
     {

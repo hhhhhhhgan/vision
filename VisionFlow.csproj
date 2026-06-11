@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
+    <NoWarn>$(NoWarn);CS8632</NoWarn>
     <ImplicitUsings>disable</ImplicitUsings>
     <ApplicationIcon></ApplicationIcon>
     <StartupObject>VisionFlow.App</StartupObject>
