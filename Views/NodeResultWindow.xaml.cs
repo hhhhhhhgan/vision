@@ -5,6 +5,7 @@ using System.Windows.Threading;
 using HalconDotNet;
 using VisionFlow.Models;
 using System.Linq;
+using VisionFlow.ViewModels;
 
 namespace VisionFlow.Views {
 

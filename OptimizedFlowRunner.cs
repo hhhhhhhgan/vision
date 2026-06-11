@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
-using VisionFlow;
+using VisionFlow.ViewModels;
 
 namespace VisionFlow {
 

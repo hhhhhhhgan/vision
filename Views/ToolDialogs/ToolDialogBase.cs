@@ -1,6 +1,8 @@
 using System;
 using System.Windows;
 
+using VisionFlow.Tools;
+
 namespace VisionFlow.Views.ToolDialogs {
 
 /// <summary>

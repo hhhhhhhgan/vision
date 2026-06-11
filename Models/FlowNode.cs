@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Media;
+using System.Runtime.CompilerServices;
 using VisionFlow.Tools;
 
 namespace VisionFlow.Models {
