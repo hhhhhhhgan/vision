@@ -33,12 +33,6 @@
   </PropertyGroup>
 
   <!-- 主 HALCON 引用 -->
-  <ItemGroup Condition="'$(HalconBin)' != ''">
-    <Reference Include="halcondotnet">
-      <HintPath>$(HalconBin)\halcondotnet.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
 
   <!-- WPF 控件引用（如果存在） -->
   <ItemGroup Condition="Exists('$(HalconBin)\HalconDotNet.WPF.dll')">
@@ -58,6 +52,12 @@
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
     <PackageReference Include="System.Text.Json" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="halcondotnet">
+      <HintPath>C:\Users\xy0077\AppData\Local\Programs\MVTec\HALCON-26.05-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
