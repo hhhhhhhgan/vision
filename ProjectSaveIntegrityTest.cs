@@ -400,19 +400,4 @@ public class ConnectionData
     public string TargetSlot { get; set; } = "";
 }
 
-public class ProjectParameters
-{
-    public List<FlowParameter> Inputs { get; set; } = new();
-    public List<FlowParameter> Outputs { get; set; } = new();
-}
-
-public class FlowParameter
-{
-    public string Name { get; set; } = "";
-    public string DataType { get; set; } = "string";
-    public string? Description { get; set; }
-    public string? DefaultValue { get; set; }
-    public string? BindingNodeId { get; set; }
-    public string? BindingSlot { get; set; }
-}
 }
