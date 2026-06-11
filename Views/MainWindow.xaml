@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisionFlow"
         xmlns:vm="clr-namespace:VisionFlow.ViewModels;assembly=VisionFlow"
         xmlns:models="clr-namespace:VisionFlow.Models;assembly=VisionFlow"
         mc:Ignorable="d"
@@ -30,6 +31,10 @@
         <SolidColorBrush x:Key="TextPrimary" Color="#F9FAFB"/>
         <SolidColorBrush x:Key="TextSecondary" Color="#9CA3AF"/>
         <SolidColorBrush x:Key="Border" Color="#374151"/>
+
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:CategoryNameConverter x:Key="CategoryNameConverter"/>
+        <local:CategoryColorConverter x:Key="CategoryColorConverter"/>
 
         <!-- 工具卡片样式 -->
         <Style x:Key="ToolCard" TargetType="Border">
@@ -173,7 +178,7 @@
                                             <TextBlock Text="{Binding Key, Converter={StaticResource CategoryNameConverter}}"
                                                        Foreground="White" FontSize="12" FontWeight="SemiBold"/>
                                             <TextBlock Grid.Column="1" Text="{Binding Count, StringFormat='({0})'}"
-                                                       Foreground="rgba(255,255,255,0.6)" FontSize="10"/>
+                                                       Foreground="#99FFFFFF" FontSize="10"/>
                                         </Grid>
                                     </Border>
 
