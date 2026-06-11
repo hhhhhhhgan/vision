@@ -1,5 +1,6 @@
 <Window x:Class="VisionFlow.Views.ToolDialogs.ImageSaveDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:local="clr-namespace:VisionFlow.Views.ToolDialogs"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="保存图像" Height="280" Width="450"
         WindowStartupLocation="CenterOwner" Background="#1A2634" ResizeMode="NoResize">
