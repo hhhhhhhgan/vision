@@ -57,9 +57,10 @@ public class CategoryColorConverter : IValueConverter
         if (value is ToolCategory cat && Colors.TryGetValue(cat, out var hex))
         {
             var color = (Color)ColorConverter.ConvertFromString(hex);
-            return color;
+            return new SolidColorBrush(color);
         }
-        return Colors[ToolCategory.Utility];
+        var defaultColor = (Color)ColorConverter.ConvertFromString(Colors[ToolCategory.Utility]);
+        return new SolidColorBrush(defaultColor);
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
