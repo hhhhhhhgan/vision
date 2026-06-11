@@ -33,7 +33,7 @@ public abstract class ToolDialogBase : Window
     /// <summary>
     /// 子类可覆盖以提供自定义工具名称输入框
     /// </summary>
-    protected virtual System.Windows.Controls.UIElement? CreateNamePanel(string currentName)
+    protected virtual UIElement? CreateNamePanel(string currentName)
     {
         var panel = new System.Windows.Controls.Grid { Margin = new Thickness(0, 0, 0, 8) };
         panel.ColumnDefinitions.Add(new System.Windows.Controls.ColumnDefinition { Width = new System.Windows.GridLength(70) });

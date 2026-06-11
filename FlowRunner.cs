@@ -4,6 +4,7 @@ using System.Text.Json;
 using HalconDotNet;
 using VisionFlow.Models;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 
