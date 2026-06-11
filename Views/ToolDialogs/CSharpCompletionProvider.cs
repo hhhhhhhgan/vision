@@ -246,10 +246,9 @@ public class CSharpCompletionProvider
 public class CompletionData : ICompletionData
 {
     public string Text { get; }
-    public string Description { get; }
+    public object Description { get; }
     public string InsertText { get; }
     public object Content => Text;
-    public object Description2 => Description;
     public double Priority => 0;
 
     public CompletionData(string text, string description, string insertText)

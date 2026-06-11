@@ -59,18 +59,19 @@ public partial class ImageLoadDialog : ToolDialogBase
     }
 }
 
-public static class HWindowControlExtensions
-{
-    public static void SetFullImage(this HalconDotNet.WPF.HWindowControlWPF hWindow, HImage image)
-    {
-        image.GetImageSize(out HTuple width, out HTuple height);
-        double ratio = Math.Min(hWindow.Width / (double)width.I, hWindow.Height / (double)height.I);
-        double imgW = width.I * ratio;
-        double imgH = height.I * ratio;
-        double ox = (hWindow.Width - imgW) / 2;
-        double oy = (hWindow.Height - imgH) / 2;
-        hWindow.HalconWindow.SetPart((int)oy, (int)ox, (int)(oy + imgH) - 1, (int)(ox + imgW) - 1);
-        image.DispImage(hWindow.HalconWindow);
-    }
-}
+// HALCON dotnet35 does not have HalconDotNet.WPF namespace - commenting out
+//public static class HWindowControlExtensions
+//{
+//    public static void SetFullImage(this HalconDotNet.WPF.HWindowControlWPF hWindow, HImage image)
+//    {
+//        image.GetImageSize(out HTuple width, out HTuple height);
+//        double ratio = Math.Min(hWindow.Width / (double)width.I, hWindow.Height / (double)height.I);
+//        double imgW = width.I * ratio;
+//        double imgH = height.I * ratio;
+//        double ox = (hWindow.Width - imgW) / 2;
+//        double oy = (hWindow.Height - imgH) / 2;
+//        hWindow.HalconWindow.SetPart((int)oy, (int)ox, (int)(oy + imgH) - 1, (int)(ox + imgW) - 1);
+//        image.DispImage(hWindow.HalconWindow);
+//    }
+//}
 }
