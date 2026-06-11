@@ -52,7 +52,7 @@ public partial class MainWindow : Window
         ViewModel.Connections.CollectionChanged += (_, _) => RedrawAll();
         ViewModel.StepEndNodeChanged += OnStepEndNodeChanged;
 
-        foreach (ToolCategory cat in Enum.GetValues<ToolCategory>())
+        foreach (ToolCategory cat in Enum.GetValues(typeof(ToolCategory)))
             _categoryCollapsed[cat] = false;
     }
 
@@ -111,10 +111,6 @@ public partial class MainWindow : Window
         if (result?.VisualHit != null)
         {
             hits.Add(result.VisualHit);
-            if (result.VisualHit is FrameworkElement fe && fe.IsTapEnabled)
-            {
-                // nothing more needed
-            }
             // Walk up the visual tree
             var parent = VisualTreeHelper.GetParent(result.VisualHit);
             while (parent != null)
@@ -146,7 +142,7 @@ public partial class MainWindow : Window
     private void FlowCanvas_Drop(object sender, DragEventArgs e)
     {
         if (!e.Data.GetDataPresent("ToolType")) return;
-        var toolType = e.Data.GetData("ToolType") as Type;
+        var toolType = e.Data.GetData("ToolType") as global::System.Type;
         if (toolType == null) return;
 
         var pos = e.GetPosition(FlowCanvas);
@@ -201,9 +197,9 @@ public partial class MainWindow : Window
         // 节点右键菜单
         var ctxMenu = new ContextMenu();
         var runItem = new MenuItem { Header = "▶ 单步运行到此处", Tag = nodeVm };
-        runItem.Click += (_, _) => _ = ViewModel.RunToNode(nodeVm);
+        runItem.Click += (_, _) => ViewModel.RunToNode(nodeVm);
         var stepItem = new MenuItem { Header = "⏭ 运行此节点", Tag = nodeVm };
-        stepItem.Click += (_, _) => _ = ViewModel.RunSelectedCommand.Execute(nodeVm);
+        stepItem.Click += (_, _) => ViewModel.RunSelectedCommand.Execute(nodeVm);
         var editItem = new MenuItem { Header = "✏ 编辑", Tag = nodeVm };
         editItem.Click += (_, _) => EditNode(nodeVm);
         var viewItem = new MenuItem { Header = "🔍 查看结果", Tag = nodeVm };
