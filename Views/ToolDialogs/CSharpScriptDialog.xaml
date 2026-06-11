@@ -1,4 +1,4 @@
-<Window Base="{x:Type local:ToolDialogBase}" x:Class="VisionFlow.Views.ToolDialogs.CSharpScriptDialog"
+<Window x:Class="VisionFlow.Views.ToolDialogs.CSharpScriptDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
