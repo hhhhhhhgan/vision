@@ -6,7 +6,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class LocatorDialog : ToolDialogBase
+public partial class LocatorDialog 
 {
     private HImage? _inputImage;
 

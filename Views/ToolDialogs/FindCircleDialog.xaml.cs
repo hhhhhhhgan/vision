@@ -5,7 +5,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class FindCircleDialog : ToolDialogBase
+public partial class FindCircleDialog 
 {
     private HImage? _inputImage;
     private HXLD? _resultCircle;

@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class CaliperMeasureDialog : ToolDialogBase
+public partial class CaliperMeasureDialog 
 {
     private readonly CaliperMeasureTool _tool;
 

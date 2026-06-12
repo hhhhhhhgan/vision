@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class MorphologyDialog : ToolDialogBase
+public partial class MorphologyDialog 
 {
     private readonly MorphologyTool _tool;
 

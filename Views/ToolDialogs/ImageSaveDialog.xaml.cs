@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class ImageSaveDialog : ToolDialogBase
+public partial class ImageSaveDialog 
 {
     private readonly ImageSaveTool _tool;
 

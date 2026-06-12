@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class PointToPointDistanceDialog : ToolDialogBase
+public partial class PointToPointDistanceDialog 
 {
     public PointToPointDistanceDialog(PointToPointDistanceTool tool)
     {

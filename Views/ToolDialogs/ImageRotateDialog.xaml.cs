@@ -4,7 +4,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class ImageRotateDialog : ToolDialogBase
+public partial class ImageRotateDialog 
 {
     private readonly ImageRotateTool _tool;
     private HImage? _inputImage;

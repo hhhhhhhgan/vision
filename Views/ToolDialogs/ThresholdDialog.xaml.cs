@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class ThresholdDialog : ToolDialogBase
+public partial class ThresholdDialog 
 {
     private readonly ThresholdTool _tool;
     private HalconDotNet.HImage? _inputImage;

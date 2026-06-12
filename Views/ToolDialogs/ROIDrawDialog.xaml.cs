@@ -5,7 +5,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class ROIDrawDialog : ToolDialogBase
+public partial class ROIDrawDialog 
 {
     private readonly ROIDrawTool _tool;
     private HImage? _inputImage;

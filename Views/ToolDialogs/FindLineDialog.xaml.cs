@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class FindLineDialog : ToolDialogBase
+public partial class FindLineDialog 
 {
     private HImage? _inputImage;
     private HXLD? _resultLine;

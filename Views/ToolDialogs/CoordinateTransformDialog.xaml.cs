@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class CoordinateTransformDialog : ToolDialogBase
+public partial class CoordinateTransformDialog 
 {
     public CoordinateTransformDialog(CoordinateTransformTool tool)
     {

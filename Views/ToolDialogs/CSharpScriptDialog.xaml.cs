@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class CSharpScriptDialog : ToolDialogBase
+public partial class CSharpScriptDialog 
 {
     private readonly CSharpScriptTool _tool;
     private readonly CSharpCompletionProvider _completionProvider = new();

@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class GetGrayValueDialog : ToolDialogBase
+public partial class GetGrayValueDialog 
 {
     private readonly GetGrayValueTool _tool;
 

@@ -6,7 +6,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class ImageProcessingDialog : ToolDialogBase
+public partial class ImageProcessingDialog 
 {
     private readonly ToolBase _tool;
     private HImage? _inputImage;

@@ -3,7 +3,7 @@ using VisionFlow.Tools;
 
 namespace VisionFlow.Views.ToolDialogs {
 
-public partial class BlobAnalysisDialog : ToolDialogBase
+public partial class BlobAnalysisDialog 
 {
     private readonly BlobAnalysisTool _tool;
 
