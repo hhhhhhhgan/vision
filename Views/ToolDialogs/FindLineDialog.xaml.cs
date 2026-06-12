@@ -19,7 +19,7 @@ public partial class FindLineDialog
         LoadFromTool();
     }
 
-    protected override void LoadFromTool()
+    protected void LoadFromTool()
     {
         if (Tool is not FindLineTool t) return;
         ROIRow1TextBox.Text = t.ROIRow1.ToString();
@@ -39,7 +39,7 @@ public partial class FindLineDialog
         };
     }
 
-    protected override void SaveToTool()
+    protected void SaveToTool()
     {
         if (Tool is not FindLineTool t) return;
         t.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 100);

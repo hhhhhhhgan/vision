@@ -12,7 +12,7 @@ public partial class CoordinateTransformDialog
         LoadFromTool();
     }
 
-    protected override void LoadFromTool()
+    protected void LoadFromTool()
     {
         if (Tool is not CoordinateTransformTool t) return;
         TransformModeCombo.SelectedIndex = t.TransformMode switch
@@ -26,7 +26,7 @@ public partial class CoordinateTransformDialog
         ScaleTextBox.Text = t.Scale.ToString();
     }
 
-    protected override void SaveToTool()
+    protected void SaveToTool()
     {
         if (Tool is not CoordinateTransformTool t) return;
         t.TransformMode = TransformModeCombo.SelectedIndex switch { 1 => "relative", 2 => "rotate", _ => "absolute" };

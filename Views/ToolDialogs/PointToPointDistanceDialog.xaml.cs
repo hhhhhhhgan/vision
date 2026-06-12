@@ -13,7 +13,7 @@ public partial class PointToPointDistanceDialog
         Compute();
     }
 
-    protected override void LoadFromTool()
+    protected void LoadFromTool()
     {
         // 仅显示，当前由连线驱动，无持久参数
         DistanceTextBlock.Text = "-";

@@ -17,7 +17,7 @@ public partial class LocatorDialog
         LoadFromTool();
     }
 
-    protected override void LoadFromTool()
+    protected void LoadFromTool()
     {
         if (Tool is not LocatorTool t) return;
         ROIRow1TextBox.Text = t.ROIRow1.ToString();
@@ -40,7 +40,7 @@ public partial class LocatorDialog
         };
     }
 
-    protected override void SaveToTool()
+    protected void SaveToTool()
     {
         if (Tool is not LocatorTool t) return;
         t.ROIRow1 = ParseDouble(ROIRow1TextBox.Text, 50);

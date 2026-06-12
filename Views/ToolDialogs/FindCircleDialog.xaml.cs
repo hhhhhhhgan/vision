@@ -17,7 +17,7 @@ public partial class FindCircleDialog
         LoadFromTool();
     }
 
-    protected override void LoadFromTool()
+    protected void LoadFromTool()
     {
         if (Tool is not FindCircleTool t) return;
         ROIRowTextBox.Text = t.ROIRow.ToString();
@@ -37,7 +37,7 @@ public partial class FindCircleDialog
         };
     }
 
-    protected override void SaveToTool()
+    protected void SaveToTool()
     {
         if (Tool is not FindCircleTool t) return;
         t.ROIRow = ParseDouble(ROIRowTextBox.Text, 200);
